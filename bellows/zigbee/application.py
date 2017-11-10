@@ -238,7 +238,7 @@ class ControllerApplication(bellows.zigbee.util.ListenableMixin):
         dev.schedule_initialize()
 
     #def _handle_gp(self, status, gdp_link, sequence, addr, sec_level, sec_keytype, auto_comm, rx_after_tx, sec_frame_ctr_length, command_id, mic, proxy_index, payload)
-    def _handle_gp(*args)
+    def _handle_gp(*args):
         LOGGER.info(args)
 
     def _handle_leave(self, nwk, ieee, *args):
