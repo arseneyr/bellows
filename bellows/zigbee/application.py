@@ -177,6 +177,8 @@ class ControllerApplication(bellows.zigbee.util.ListenableMixin):
                 self._handle_leave(*args)
             else:
                 self._handle_join(*args)
+        elif frame_name == 'gpepIncomingMessageHandler':
+            self._handle_gp(*args)
 
     def _handle_frame(self, message_type, aps_frame, lqi, rssi, sender, binding_index, address_index, message):
         try:
@@ -234,6 +236,10 @@ class ControllerApplication(bellows.zigbee.util.ListenableMixin):
             self.listener_event('device_joined', dev)
 
         dev.schedule_initialize()
+
+    #def _handle_gp(self, status, gdp_link, sequence, addr, sec_level, sec_keytype, auto_comm, rx_after_tx, sec_frame_ctr_length, command_id, mic, proxy_index, payload)
+    def _handle_gp(*args)
+        LOGGER.info(args)
 
     def _handle_leave(self, nwk, ieee, *args):
         LOGGER.info("Device 0x%04x (%s) left the network", nwk, ieee)
